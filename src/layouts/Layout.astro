@@ -16,43 +16,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro of Imagination | {title}</title>
 	</head>
-	<body>
+	<body class="bg-big-stone-950">
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-        --color-tone-50: '#f3f7fb';
-        --color-tone-100: '#222';
-        --color-tone-200: '#cddff0';
-        --color-tone-300: '#aacae6';
-        --color-tone-400: '#82afd8';
-        --color-tone-500: '#6493cd';
-        --color-tone-600: '#4f7abf';
-        --color-tone-700: '#4669af';
-        --color-tone-800: '#3e578f';
-        --color-tone-900: '#364972';
-        --color-tone-950: '#151515';
-
-		--color-black: #222;
-		--color-white: #eee7f4;
-
-		--backround-color: linear-gradient(to bottom right, var(--color-white), var(--color-tone-50));
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: var(--backround-color);
-		/* background-size: 224px; */
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

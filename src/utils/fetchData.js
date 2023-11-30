@@ -2,17 +2,6 @@ import config from '@utils/config';
 import { getScreenResolution } from './globals'; // Asegúrate de que el nombre del archivo coincida
 import axios from 'axios';
 
-//HomeView
-export async function fetchGitHubUserInformation() {
-  try {
-    const informationRequest = await axios.get(`https://api.github.com/users/${config.gh.account}`);
-    return informationRequest.data;
-  } catch (error) {
-    console.error('Error al cargar datos desde la API', error);
-    return null;
-  }
-}
-
 //AboutView
 export async function fetchGitHubReadme() {
   try {
