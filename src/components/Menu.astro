@@ -1,15 +1,14 @@
 ---
 
 interface Props {
-	name: string;
+	username: string;
 }
-const { name } = Astro.props;
+const { username } = Astro.props;
 
 
 
 ---
 
-<header class="min-w-screen backdrop-blur-sm sticky top-0 min-h-[5rem] pt-5 bg-white">
-    <h1 class="text-xl">{name}</h1>
-
+<header class="min-w-screen sticky top-0 min-h-[5rem] pt-5 backdrop-blur-lg bg-opacity-80">
+    <h1 class="text-xl">{username}</h1>
 </header>

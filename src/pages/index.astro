@@ -2,14 +2,50 @@
 import Layout from '@layouts/Layout.astro'
 import Menu from '@components/Menu.astro'
 import config from '@utils/config'
+import type Repositories from '@interfaces/repositories.interface'
+import Readme from './gh_README.md'
 
-const user = await fetch(`https://api.github.com/users/${config.gh.account}`).then(data => data.json());
+// const user = await fetch(`https://api.github.com/users/${config.gh.account}`).then(data => data.json());
+const user = await fetch(`http://localhost:4321/azaldevx.json`).then(data => data.json());
+const repositories = await fetch(`http://localhost:4321/repositories.json`).then(data => data.json());
+
+
+
 ---
 <Layout title={user.login}>
 	<main class="bg-revolver-950">
-		<div class="min-h-screen mx-auto max-w-3xl px-5 m-5 flex flex-col gap-10 bg-red-300">
-			<Menu name={user.name} />
-			<h3 class="text-2xl"> {user.login} </h3>
+		<div class="min-h-screen mx-auto max-w-3xl px-5 m-5 p-5 flex flex-col gap-10">
+			<Menu username={user.login} />
+			<!-- BASIC INFORMATION -->
+			<div class="flex flex-row items-start">
+				<img class="w-32 rounded-2xl" src={user.avatar_url} alt="">
+				<div class="mx-8">
+					<a target="_blank" href={user.html_url}>
+						<h3 class="text-4xl font-bold hover:text-bigStone300"> {user.name} </h3>
+					</a>
+					<p class="text-gray-400">{user.bio}</p>
+				</div>
+			</div>
+			<hr>
+			<!-- ABOUT ME (readme.md) -->
+			<h1 class="text-4xl">About Me</h1>
+			<section class="flex flex-col gap-7">	
+				<Readme />
+			</section>
+			<hr>
+
+			<!-- REPOSITORIES -->
+			<h1 class="text-4xl">Projects</h1>
+			<section class="flex flex-row gap-5 flex-wrap">
+				{
+					repositories.map((repo: Repositories) => (
+						<article class="bg-bigStone900 p-3 lg:w-90">
+							<p> {repo.name} </p>
+						</article>
+					))
+
+				}
+			</section>
 		</div>
 	</main>
 </Layout>
