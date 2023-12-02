@@ -4,7 +4,7 @@ export default {
       screen: 1024
     },
     web: {
-      name: "Orbit of Imagination",
+      name: "Astro of Imagination",
     },
     gh: {
       account: "AzalDevX",
