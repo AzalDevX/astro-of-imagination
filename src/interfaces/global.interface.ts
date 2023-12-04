@@ -1,6 +1,6 @@
 export {};
 
-// repositories.interface.js
+// licenseType.interface.js
 interface LicenseType {
     key: string;
     name: string;
@@ -10,7 +10,7 @@ interface LicenseType {
 };
 
 
-// repositories.interface.js
+// ownerType.interface.js
 interface OwnerType {
     login: string;
     id: number;
