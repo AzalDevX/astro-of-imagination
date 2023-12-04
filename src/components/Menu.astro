@@ -1,14 +1,16 @@
 ---
-
 interface Props {
 	username: string;
+    profile_picture: string;
+    github_url: string;
 }
-const { username } = Astro.props;
-
-
-
+const { username, profile_picture,github_url } = Astro.props;
 ---
 
-<header class="min-w-screen sticky top-0 min-h-[5rem] pt-5 backdrop-blur-lg bg-opacity-80">
-    <h1 class="text-xl">{username}</h1>
+<header class="min-w-screen px-5 sticky top-0 min-h-[5rem] backdrop-blur-lg bg-opacity-80 flex flex-row justify-start gap-4 items-center">
+    <img src={profile_picture} alt="Github Profile Picture"
+    class="w-10 m-3 rounded-md">
+    <a target="_blank" href={github_url} class="hover:text-bigStone300 rounded-2xlfont-extrabold">
+        <h1 class="text-xl">{username}</h1>
+    </a>
 </header>
