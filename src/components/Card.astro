@@ -1,21 +1,14 @@
 ---
+import type Repositories from '@interfaces/global.interface'
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+	repo: Repositories;
 }
 
-const { href, title, body } = Astro.props;
+const { repo } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<a target="_blank" href={repo.html_url}>
+	<article class="bg-bigStone900 p-3 w-80">
+		<h2 class="text-2xl"> {repo.name} </h2>
+	</article>
+</a>

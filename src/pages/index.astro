@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro'
 import Menu from '@components/Menu.astro'
 import Footer from '@components/Footer.astro'
+import Card from '@components/Card.astro'
 import config from '@utils/config'
 import type Repositories from '@interfaces/global.interface';
 import Readme from './gh_README.md'
@@ -38,9 +39,7 @@ const repositories = await fetch(`http://localhost:4321/repositories.json`).then
 			<section class="flex flex-row gap-5 flex-wrap">
 				{
 					repositories.map((repo: Repositories) => (
-						<article class="bg-bigStone900 p-3 lg:w-90">
-							<p> {repo.name} </p>
-						</article>
+						<Card repo={repo}/>
 					))
 
 				}
