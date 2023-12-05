@@ -8,7 +8,12 @@ const { repo } = Astro.props;
 ---
 
 <a target="_blank" href={repo.html_url}>
-	<article class="bg-bigStone900 p-3 w-80">
-		<h2 class="text-2xl"> {repo.name} </h2>
+	<article class="bg-bigStone900 hover:shadow-xl hover:shadow-bigStone700 hover:transition-all hover:border-2 border-bigStone700 rounded-xl p-3 w-80 h-[15rem] flex flex-col gap-2">
+		<section class="flex flex-row items-center gap-1 ">
+			<h2 class="text-xl"> {repo.name} |</h2> 
+			<span class="text-bigStone200"> {repo.language} </span>
+		</section>
+		
+		<p class="text-sm text-bigStone300">{repo.description}</p>
 	</article>
 </a>
